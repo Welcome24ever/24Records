@@ -694,6 +694,15 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
+      额外思考
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
       日志
     </span>
   </a>
@@ -875,6 +884,15 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
+      额外思考
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
       日志
     </span>
   </a>
@@ -1029,8 +1047,26 @@
 <a id="__codelineno-0-82" name="__codelineno-0-82" href="#__codelineno-0-82"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Welcome24ever</span><span class="p">;</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83" href="#__codelineno-0-83"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">日志</h2>
+<h2 id="_5">额外思考</h2>
+<p>这个题给我们带来了什么思考呢？
+我们先来思考一下这个题可不可以用 <span class="arithmatex">\(\text{BIT}\)</span>（树状数组）来做。
+答案是不可以，但是为什么呢？</p>
+<p>我们考虑一下如果我们要用 <span class="arithmatex">\(\text{BIT}\)</span> 来做这道题的话是什么样的，
+<span class="arithmatex">\(\text{BIT}\)</span> 的修改操作是从上到下的，
+而这道题我们要实现的操作是从下到上的，
+由于 <span class="arithmatex">\(\text{BIT}\)</span> 并不支持 <code>pushUp</code> 操作，
+所以无法做到这种从下到上的操作。</p>
+<p>除此之外还有一个原因，就是因为本题的 <span class="arithmatex">\(m\)</span> 没有保证是一个质数，
+因此在这个题的背景下其操作 <span class="arithmatex">\(1\)</span> 没有逆的，
+因为 <span class="arithmatex">\(\text{BIT}\)</span> 维护单点修改，需要你维护的东西有结合律、交换律、逆元，
+而这个题的操作没有逆元，所以我们无法使用 <span class="arithmatex">\(\text{BIT}\)</span> 维护。</p>
+<p>由此我们可以进一步思考线段树和 <span class="arithmatex">\(\text{BIT}\)</span> 的区别，
+线段树的 <code>pushUp</code> 是把一路上的信息重新计算，
+而 <span class="arithmatex">\(\text{BIT}\)</span> 是在之前计算好的信息上进行计算，
+而由于操作 <span class="arithmatex">\(1\)</span> 没有逆，所以这题无法使用 <span class="arithmatex">\(\text{BIT}\)</span> 来做。</p>
+<h2 id="_6">日志</h2>
 <p>本页面创建于 2024/6/23 22:22</p>
+<p>UPD-1：2024/6/24 02:01 增加了“额外思考”，并且修改若干笔误。</p>
 <p>特别鸣谢:</p>
 <p>01/Ackerlanna/Nelofus/zhafde推荐了这个题目</p>
 <p>Jlyfish和Inkyo提供的帮助</p>
