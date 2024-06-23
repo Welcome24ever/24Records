@@ -455,6 +455,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lambda_1" class="md-nav__link">
     <span class="md-ellipsis">
       lambda表达式的应用场景
@@ -473,7 +482,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       捕获的区别
     </span>
@@ -483,7 +492,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       按引用捕获
     </span>
@@ -492,7 +501,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       按值捕获
     </span>
@@ -515,9 +524,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#lambda_4" class="md-nav__link">
     <span class="md-ellipsis">
-      注意
+      关于lambda递归的拓展
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useless" class="md-nav__link">
+    <span class="md-ellipsis">
+      useless
     </span>
   </a>
   
@@ -575,6 +593,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#lambda_1" class="md-nav__link">
     <span class="md-ellipsis">
       lambda表达式的应用场景
@@ -593,7 +620,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       捕获的区别
     </span>
@@ -603,7 +630,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       按引用捕获
     </span>
@@ -612,7 +639,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       按值捕获
     </span>
@@ -635,9 +662,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#lambda_4" class="md-nav__link">
     <span class="md-ellipsis">
-      注意
+      关于lambda递归的拓展
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useless" class="md-nav__link">
+    <span class="md-ellipsis">
+      useless
     </span>
   </a>
   
@@ -671,10 +707,18 @@
 
 
 <h1 id="lambda">lambda表达式</h1>
-<p>本页面不会为大家讲解CPP中lambda表达式的详细底层原理，
+<p>本页面不会为大家讲解C++中lambda表达式的详细底层原理，
 只会讲解在特定场合如何使用lambda表达式，
+本文秉承着让大家学会如何使用lambda表达式的主旨。
 如果对于lambda表达式底层原理感兴趣，
-可以自行上网百度。</p>
+可以自行上网搜索其他相关资料。</p>
+<h2 id="_1">注意</h2>
+<p>按理来说，只要不写出非常刁钻的代码，
+可以在不理解底层原理的情况下使用常规的lambda表达式写法可以满足绝大多数应用场景。</p>
+<p>如果使用lambda表达式过程中出现了意料之外的CE等错误，
+请改用传统函数实现，
+不要创死在lambda表达式上,
+浪费比赛时间。</p>
 <h2 id="lambda_1">lambda表达式的应用场景</h2>
 <p>在算法竞赛中，我们经常会把大篇幅的重复代码封装成函数，
 以此来省去编写重复的代码，</p>
@@ -690,7 +734,7 @@
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">}</span>
 </code></pre></div>
 但是如果我们要同时使用多个函数外的变量该怎么办呢？
-传多个变量显然是非常麻烦的。
+传多个变量显然的，而且显然是非常麻烦的。
 如果你又不喜欢开全局变量，那么就可以使用lambda表达式了。</p>
 <h2 id="lambda_2">如何使用lambda表达式</h2>
 <p>你可以把lambda表达式理解成一个函数中的函数。</p>
@@ -708,13 +752,13 @@ auto是类型推到关键字，建议无脑写auto。</p>
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="n">work</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 <a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
 </code></pre></div>
-这样我们就可以实现在函数中声明另一个函数并且调用了!</p>
+这样我们就可以实现在函数中声明一个lambda并且调用了!</p>
 <p>但是在这个时候我们发现在函数里面是不可以调用外面的变量的，
 这个时候就要用到捕获了。</p>
-<h2 id="_1">捕获的区别</h2>
+<h2 id="_2">捕获的区别</h2>
 <p>捕获，顾名思义，就是把lambda外的变量捕获，
 使其能够在lambda内部使用。</p>
-<h3 id="_2">按引用捕获</h3>
+<h3 id="_3">按引用捕获</h3>
 <p>按引用捕获，顾名思义，就是我们把这个变量以引用的方式捕获进来了，
 具体方法是在中括号中加一个 “&amp;”即可。</p>
 <p>众所周知引用是一种起别名，
@@ -734,7 +778,7 @@ auto是类型推到关键字，建议无脑写auto。</p>
 通俗来讲就是你可以改变这个变量的值，
 并且你改变的结果在函数外也是生效的。</p>
 <p>例如在上述的例子中，work()函数执行完之后输出的是1。</p>
-<h3 id="_3">按值捕获</h3>
+<h3 id="_4">按值捕获</h3>
 <p>理解了按引用捕获之后，按值捕获就是只把这个数字捕获进来了，
 一定要注意的是，你可在函数中使用按值捕获的东西来计算，
 但是不能更改这个按值捕获的值。</p>
@@ -767,18 +811,70 @@ auto是类型推到关键字，建议无脑写auto。</p>
 <a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1">//3</span>
 <a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="c1">//4</span>
 </code></pre></div>
-注意一下要点：
-- 在参数列表中加入一个 "auto self"
-- 在参数后用 " -&gt; 返回值类型 " 来声明返回值类型
-- 在lambda内部调用递归时，写self(self,……)
-- 在调用lambda时 ”auto self“ 参数直接传入函数名</p>
+注意以下几个要点：</p>
+<ul>
+<li>
+<p>在参数列表中加入一个 "auto self"</p>
+</li>
+<li>
+<p>在参数后用 " -&gt; 返回值类型 " 来声明返回值类型</p>
+</li>
+<li>
+<p>在lambda内部调用递归时，写self(self,……)</p>
+</li>
+<li>
+<p>在调用lambda时 ”auto self“ 参数直接传入函数名</p>
+</li>
+</ul>
 <p>不需要知道为什么，只需要记住以上几点就可以了，
 如果想知道底层原理可以去网上找资料学习，
 本文不再赘述。</p>
-<h2 id="_4">注意</h2>
-<p>如果使用lambda表达式过程中出现了意料之外的CE等错误，
-请改用传统函数写代码，
-不要创死在lambda表达式上。</p>
+<h2 id="lambda_4">关于lambda递归的拓展</h2>
+<p>在使用lambda进行递归时，除了加一个"(auto self)"，
+还可以使用如下写法：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">    </span><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">){</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">        </span><span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">dfs</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div>
+这段代码可以和上文中的递归lambda表达式实现相同的效果。</p>
+<p>不过这段代码省去了"auto self",
+也不用在函数内使用"self(self,……)"写法。</p>
+<p>只需要把自动推断类型的auto换成"function<void(int)>"。
+你可以把这个部分理解成：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">function</span><span class="o">&lt;</span><span class="n">返回类型</span><span class="p">(</span><span class="n">参数类型1</span><span class="err">，</span><span class="n">参数类型2</span><span class="p">)</span><span class="o">&gt;</span>
+</code></pre></div>
+例如当我们书写一个
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">function</span><span class="o">&lt;</span><span class="kt">void</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span><span class="kt">double</span><span class="p">)</span><span class="o">&gt;</span>
+</code></pre></div>
+时，
+就代表我们声明了一个返回值类型为"void",
+第一个参数类型为int，第二个参数类型为double的表达式。</p>
+<p>可以自由选择喜欢的写法。</p>
+<h2 id="useless">useless</h2>
+<p>捕获还有一种用法如下：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">=</span><span class="p">,</span><span class="o">&amp;</span><span class="n">a</span><span class="p">,</span><span class="o">&amp;</span><span class="n">c</span><span class="p">](){</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="c1">//b = 2; //报错 因为b是按值捕获</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">    </span><span class="n">work</span><span class="p">();</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="p">}</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="p">}</span>
+</code></pre></div>
+大家可以看一下这段代码的捕获部分，
+代表了按值捕获了其他变量，但是按引用捕获了变量a和c。
+不过通常在CP中没什么情况需要这样写，
+所以我把这种写法归纳为useless。</p>
 <h2 id="_5">日志</h2>
 <p>本页面创建于 2024/6/23 2:20</p>
 
