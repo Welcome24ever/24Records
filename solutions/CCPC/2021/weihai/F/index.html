@@ -1338,11 +1338,10 @@
 每次每个玩家取的石子必须是上一个人所取的石子数的因子。
 即，我们设先手玩家第一轮取了 <span class="arithmatex">\(s_1\)</span> 个石子，
 后手玩家取 <span class="arithmatex">\(s_2\)</span> 石子，
-那么 <span class="arithmatex">\(s_1\)</span> 和 <span class="arithmatex">\(s_2\)</span> 数字必须满足 <span class="arithmatex">\(s_2 \mid s_1\)</span>。
+那么 <span class="arithmatex">\(s_1\)</span> 和 <span class="arithmatex">\(s_2\)</span> 数字必须满足 <span class="arithmatex">\(s_1\)</span> 是 <span class="arithmatex">\(s_2\)</span> 的倍数 。
 当一方不能取石子的时候就输掉了游戏。</p>
-<p>问：先手在必胜的条件下，第一回合有多少种取石子的方案，
-数量不同就是不同方案。</p>
-<p>数据说明：</p>
+<p>问：先手在必胜的条件下，第一回合有多少种取石子的方案。</p>
+<p>数据范围：</p>
 <p><span class="arithmatex">\(1\le n\le 10^6\)</span>，<span class="arithmatex">\(1\le a_i\le 10^9\)</span>。</p>
 <h2 id="_2">分析</h2>
 <p>首先很显然这道题是一个博弈论，
@@ -1379,38 +1378,38 @@
 每一堆石子有多少石子、
 上一个取的人是谁、上一个人取了多少个。
 由于我们已经得出了结论 <span class="arithmatex">\((3)\)</span>，
-那么当 <span class="arithmatex">\(a_i\)</span> 全部都为偶数的时候没有人会取偶数个。
+那么当 <span class="arithmatex">\(a_i\)</span> 全部都为偶数的时候没有人会取奇数个。
 那么我们大胆地把这个状态变成：
 <span class="arithmatex">\(2 \times a_i\)</span>、<span class="arithmatex">\(last\)</span>、<span class="arithmatex">\(2 \times val\)</span>。
 那么在这个时候我们会发现这个状态没有任何性质上的不同。
-如果我们把乘以二之前的状态 <span class="arithmatex">\(\text{DAG}\)</span> 称为 <span class="arithmatex">\(G1\)</span>，
-乘以二之后的状态 <span class="arithmatex">\(\text{DAG}\)</span> 称为 <span class="arithmatex">\(G2\)</span>，
+如果我们把乘以二之前的状态 <span class="arithmatex">\(\text{DAG}\)</span> 称为 <span class="arithmatex">\(G_1\)</span>，
+乘以二之后的状态 <span class="arithmatex">\(\text{DAG}\)</span> 称为 <span class="arithmatex">\(G_2\)</span>，
 我们会发现这两个 <span class="arithmatex">\(\text{DAG}\)</span> 上是可以创造一个双射关系的，
 也就是说这两个状态是等价的，
 于是又可以得出一个结论：</p>
 <div class="arithmatex">\[\begin{equation}
-在全是偶数的情况下，所有数字乘以2并不改变其性质。 \tag{4}
+在全是偶数的情况下，所有数字乘以\;2\;并不改变其性质。 \tag{4}
 \end{equation}\]</div>
 <p>那么因为这两个 <span class="arithmatex">\(\text{DAG}\)</span> 是建立了双射关系的，
 因此我们可以从结论 <span class="arithmatex">\((4)\)</span> 进一步得出一个最重要的结论：</p>
 <div class="arithmatex">\[\begin{equation}
-在全是偶数的情况下，所有数字除以2并不改变其性质。 \tag{5}
+在全是偶数的情况下，所有数字除以\;2\;并不改变其性质。 \tag{5}
 \end{equation}\]</div>
 <p>那么有了结论 <span class="arithmatex">\((5)\)</span>，我们就可以做这道题了，
 因为我们不断把一个全是偶数的状态除以 <span class="arithmatex">\(2\)</span> 之后，
 其一定会出现一个状态存在一个奇数，这样我们就可以找到一个必胜态了。</p>
 <h2 id="_3">具体思路</h2>
 <p>我们考虑到，实际上我们不断对一个数字除以 <span class="arithmatex">\(2\)</span> 的过程，
-实际上和用一个数字除以它的 <span class="arithmatex">\(\text{LowBit}\)</span> 是等价的。
-因此我们可以直接考虑 <span class="arithmatex">\(\text{LowBit}\)</span>。</p>
+实际上和用一个数字除以它的 <span class="arithmatex">\(lowbit\)</span> 是等价的。
+因此我们可以直接考虑 <span class="arithmatex">\(lowbit\)</span>。</p>
 <p>那么我们再去思考一下，对于一个必胜态而言，
 我们有多少种取值的方法呢？
 对于一个奇数，如果我们要取其中的奇数个，
-我们有 <span class="arithmatex">\((奇数个数 + 1) \div 2\)</span> 种取出奇数的方法。</p>
+我们有 <span class="arithmatex">\((奇数个数 + 1) / 2\)</span> 种取出奇数的方法。</p>
 <p>那么最后我们的写代码思路就是，
-先找出 <span class="arithmatex">\(\text{LowBit}\)</span> 最小的值，
+先找出 <span class="arithmatex">\(lowbit\)</span> 最小的值，
 然后看当他被不断除以二变成奇数之后我们有多少种取值，
-其中不断除以二的过程我们可以直接用 <span class="arithmatex">\(x \div LowBit(x)\)</span> 来计算。</p>
+其中不断除以二的过程我们可以直接用 <span class="arithmatex">\(x / lowbit(x)\)</span> 来计算。</p>
 <h2 id="_4">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
@@ -1439,10 +1438,11 @@
 感觉在博弈论中是非常常见的。
 综合来说感觉是一道十分巧妙的博弈论。</p>
 <h2 id="_6">日志</h2>
-<p>本页面创建于 2024/6/25 17:10</p>
+<p>本页面创建于 2024/6/25 17:10
+UPD-1：2024/6/27 20:01 格式修正</p>
 <p>特别鸣谢：</p>
-<p>tarjen在地铁上推荐了这道题</p>
-<p>Kilo_5723提供的指导</p>
+<p>tarjen 在地铁上推荐了这道题</p>
+<p>Kilo_5723 提供的指导</p>
 
 
 
