@@ -799,7 +799,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      题目大意
+      题目描述
     </span>
   </a>
   
@@ -817,7 +817,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -826,15 +826,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -842,7 +833,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1091,6 +1082,8 @@
       
         
       
+        
+      
     
     
       
@@ -1134,6 +1127,27 @@
   
   <span class="md-ellipsis">
     P4588 [TJOI2018] 数学计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../luogu/P5304/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P5304 [GXOI/GZOI2019] 旅行者
   </span>
   
 
@@ -1257,7 +1271,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      题目大意
+      题目描述
     </span>
   </a>
   
@@ -1275,7 +1289,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -1284,15 +1298,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -1300,7 +1305,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1329,7 +1334,7 @@
 <h1 id="cf1982a-soccer">CF1982A  Soccer</h1>
 <p>原题链接：<a href="https://codeforces.com/contest/1982/problem/A">A. Soccer</a></p>
 <p>Tag: 签到题</p>
-<h2 id="_1">题目大意</h2>
+<h2 id="_1">题目描述</h2>
 <p>有一场比赛，两个球队，
 一个人在两个时间分别观察到了 <span class="arithmatex">\(x1\)</span>、<span class="arithmatex">\(y1\)</span>、<span class="arithmatex">\(x2\)</span>、<span class="arithmatex">\(y2\)</span>。
 规定同一时间只有一个队伍能够得分，
@@ -1339,9 +1344,8 @@
 <h2 id="_2">分析</h2>
 <p>没什么智慧，没什么好分析的，直接想一下什么时候一定存在相同的。
 无非就是看成两个区间，一个区间包含了另一个区间的时候存在一定会相同的情况。</p>
-<h2 id="_3">具体思路</h2>
-<p>直接判断两个区间是否存在包含关系。</p>
-<h2 id="_4">代码实现</h2>
+<p>写法也就是直接判断两个区间是否存在包含关系。</p>
+<h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
@@ -1352,9 +1356,9 @@
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">额外思考</h2>
+<h2 id="_4">额外思考</h2>
 <p>水题没什么思考价值。</p>
-<h2 id="_6">日志</h2>
+<h2 id="_5">日志</h2>
 <p>本页面创建于 2024/6/26 01:50</p>
 
 

@@ -820,7 +820,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      题目大意
+      题目描述
     </span>
   </a>
   
@@ -838,7 +838,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -847,15 +847,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -863,7 +854,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1091,6 +1082,8 @@
       
         
       
+        
+      
     
     
       
@@ -1134,6 +1127,27 @@
   
   <span class="md-ellipsis">
     P4588 [TJOI2018] 数学计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../luogu/P5304/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P5304 [GXOI/GZOI2019] 旅行者
   </span>
   
 
@@ -1257,7 +1271,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      题目大意
+      题目描述
     </span>
   </a>
   
@@ -1275,7 +1289,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -1284,15 +1298,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -1300,7 +1305,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1329,7 +1334,7 @@
 <h1 id="cf1982b-collatz-conjecture">CF1982B  Collatz Conjecture</h1>
 <p>原题链接：<a href="https://codeforces.com/contest/1982/problem/B">B. Collatz Conjecture</a></p>
 <p>Tag：暴力模拟</p>
-<h2 id="_1">题目大意</h2>
+<h2 id="_1">题目描述</h2>
 <p>给定一个 <span class="arithmatex">\(x\)</span>、一个 <span class="arithmatex">\(y\)</span> 和一个 <span class="arithmatex">\(k\)</span>。
 <span class="arithmatex">\(k\)</span> 代表执行了 <span class="arithmatex">\(k\)</span> 次操作，每次操作依次执行两步：</p>
 <ol>
@@ -1345,14 +1350,13 @@
 <p>首先可以想到如果某个时刻 <span class="arithmatex">\(x\)</span> 变成 <span class="arithmatex">\(1\)</span> 了，
 那么这个时候这个操作就出现了一个长度为 <span class="arithmatex">\(y - 1\)</span> 的循环节，
 这个时候稍微动用一下你大脑的智慧算一下就好了。</p>
-<h2 id="_3">具体思路</h2>
 <p>当 <span class="arithmatex">\(x \neq 1\)</span> 并且 <span class="arithmatex">\(k \neq 0\)</span> 的时候我们进行暴力模拟，
 不满足条件的时候，如果 <span class="arithmatex">\(k = 0\)</span>，代表操作都做完了，
 直接输出 <span class="arithmatex">\(x\)</span> 就是对的。</p>
 <p>除此之外就是 <span class="arithmatex">\(x = 1\)</span> 的情况了，
 在这种情况下已经说了会出现一个长度为 <span class="arithmatex">\(y - 1\)</span> 的循环节，
 所以我们直接模一下就可以了</p>
-<h2 id="_4">代码实现</h2>
+<h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
@@ -1375,12 +1379,12 @@
 <a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">额外思考</h2>
+<h2 id="_4">额外思考</h2>
 <p>本体赛时单防了我四十分钟，
 因为我拿不准时间复杂度没敢写，
 最后实在受不了弄了个看起来就要TLE的，
 结果跑的飞快，嘻嘻。</p>
-<h2 id="_6">日志</h2>
+<h2 id="_5">日志</h2>
 <p>本页面创建于 2024/6/26 02:06</p>
 
 

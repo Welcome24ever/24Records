@@ -841,7 +841,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      题目大意
+      题目描述
     </span>
   </a>
   
@@ -859,7 +859,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -868,15 +868,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -884,7 +875,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1091,6 +1082,8 @@
       
         
       
+        
+      
     
     
       
@@ -1134,6 +1127,27 @@
   
   <span class="md-ellipsis">
     P4588 [TJOI2018] 数学计算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../luogu/P5304/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    P5304 [GXOI/GZOI2019] 旅行者
   </span>
   
 
@@ -1257,7 +1271,7 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      题目大意
+      题目描述
     </span>
   </a>
   
@@ -1275,7 +1289,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -1284,15 +1298,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -1300,7 +1305,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1329,7 +1334,7 @@
 <h1 id="cf1982c-boring-day">CF1982C  Boring Day</h1>
 <p>原题链接：<a href="https://codeforces.com/contest/1982/problem/C">C. Boring Day</a></p>
 <p>Tag：模拟</p>
-<h2 id="_1">题目大意</h2>
+<h2 id="_1">题目描述</h2>
 <p>你有 <span class="arithmatex">\(n\)</span> 张顺序不能变的扑克牌，
 给定你一个区间 <span class="arithmatex">\(l\)</span>、<span class="arithmatex">\(r\)</span>。
 要求你按顺序取这些扑克牌，
@@ -1350,10 +1355,9 @@
 如果比目标区间大，那就没办法了，确实是要爆掉的。
 如果比目标区间小，那我们就可以尝试让这个数字带上前面的数字看会不会爆。</p>
 <p>说了这么多本质就是一个滑动窗口的思想。</p>
-<h2 id="_3">具体思路</h2>
 <p>写个 <span class="arithmatex">\(\text{deque}\)</span> 模拟一下，
 特判一下总值爆了的时候当前值能不能自己进行一次结算得分就可以了。</p>
-<h2 id="_4">代码实现</h2>
+<h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">r</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="n">r</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -1387,9 +1391,9 @@
 <a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">额外思考</h2>
+<h2 id="_4">额外思考</h2>
 <p>感觉是很简单的贪心，说实话没什么营养。</p>
-<h2 id="_6">日志</h2>
+<h2 id="_5">日志</h2>
 <p>本页面创建于 2024/6/26 02:16</p>
 
 
