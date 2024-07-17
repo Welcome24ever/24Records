@@ -951,7 +951,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -960,15 +960,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -976,7 +967,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1298,7 +1289,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -1307,15 +1298,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -1323,7 +1305,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1364,11 +1346,10 @@
 三个字符串，一定有两个字符串同时满足 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(0\)</span> 的个数大于等于 <span class="arithmatex">\(n\)</span>。
 所以我们只需要先找到两个满足这个条件的字符串，
 随便构造一下就可以了。</p>
-<h2 id="_3">具体思路</h2>
-<p>先计数，
+<p>总而言之先计数，
 之后构造的思路是，比如我们找到的是两个 <span class="arithmatex">\(1\)</span> 的个数大于等于 <span class="arithmatex">\(n\)</span> 的。
 那么我们先假设放了一整排的 <span class="arithmatex">\(1\)</span>，然后按照两个字符串中哪个里面两个 <span class="arithmatex">\(1\)</span> 中间的 <span class="arithmatex">\(0\)</span> 比较多来放入 <span class="arithmatex">\(0\)</span>。</p>
-<h2 id="_4">代码实现</h2>
+<h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">string</span><span class="w"> </span><span class="nf">work</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">str1</span><span class="p">,</span><span class="n">string</span><span class="w"> </span><span class="n">str2</span><span class="p">,</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="p">,</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">){</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="n">string</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tmp1</span><span class="p">,</span><span class="w"> </span><span class="n">tmp2</span><span class="p">;</span>
@@ -1432,11 +1413,11 @@
 <a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-0-62" name="__codelineno-0-62" href="#__codelineno-0-62"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">额外思考</h2>
+<h2 id="_4">额外思考</h2>
 <p>感觉还是一个稍微有点智慧的构造，
 可以用鸽巢原理证明是对的，
 一道还可以但是无法引出我什么额外思考的题。</p>
-<h2 id="_6">日志</h2>
+<h2 id="_5">日志</h2>
 <p>本页面创建于 2024/6/27 00:23</p>
 
 

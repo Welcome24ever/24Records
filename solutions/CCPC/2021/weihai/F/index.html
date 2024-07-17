@@ -680,7 +680,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -689,15 +689,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -705,7 +696,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1300,7 +1291,7 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      具体思路
+      代码实现
     </span>
   </a>
   
@@ -1309,15 +1300,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      代码实现
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       额外思考
     </span>
   </a>
@@ -1325,7 +1307,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -1421,7 +1403,6 @@
 <p>那么有了结论 <span class="arithmatex">\((5)\)</span>，我们就可以做这道题了，
 因为我们不断把一个全是偶数的状态除以 <span class="arithmatex">\(2\)</span> 之后，
 其一定会出现一个状态存在一个奇数，这样我们就可以找到一个必胜态了。</p>
-<h2 id="_3">具体思路</h2>
 <p>我们考虑到，实际上我们不断对一个数字除以 <span class="arithmatex">\(2\)</span> 的过程，
 实际上和用一个数字除以它的 <span class="arithmatex">\(lowbit\)</span> 是等价的。
 因此我们可以直接考虑 <span class="arithmatex">\(lowbit\)</span>。</p>
@@ -1433,7 +1414,7 @@
 先找出 <span class="arithmatex">\(lowbit\)</span> 最小的值，
 然后看当他被不断除以二变成奇数之后我们有多少种取值，
 其中不断除以二的过程我们可以直接用 <span class="arithmatex">\(x / lowbit(x)\)</span> 来计算。</p>
-<h2 id="_4">代码实现</h2>
+<h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
@@ -1453,14 +1434,14 @@
 <a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">ans</span><span class="o">/</span><span class="n">lowBit</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_5">额外思考</h2>
+<h2 id="_4">额外思考</h2>
 <p>这道题个人感觉下来，绝大部分是显然的，
 最难的一部分是考虑到除以二的操作。
 至于把状态当成点，操作当成边，
 把一个博弈过程中的所有状态变成一个 <span class="arithmatex">\(\text{DAG}\)</span>，
 感觉在博弈论中是非常常见的。
 综合来说感觉是一道十分巧妙的博弈论。</p>
-<h2 id="_6">日志</h2>
+<h2 id="_5">日志</h2>
 <p>本页面创建于 2024/6/25 17:10
 UPD-1：2024/6/27 20:01 格式修正</p>
 <p>特别鸣谢：</p>
