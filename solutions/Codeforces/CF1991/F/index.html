@@ -1858,6 +1858,19 @@
 所以我们判断是否存在一个 <span class="arithmatex">\(i\)</span>，
 使得 <span class="arithmatex">\(a_i,a_{i+1},a_{i+2},a_{i+3},a_{i+4},a_{i+5}\)</span> 能构成两个三角形，
 至于如何判断这部分，我们直接暴力枚举判断多写几个 <span class="arithmatex">\(if\)</span> 就可以了。</p>
+<p>感性理解上面这一部分，其实六个连续的组成两个三角形，
+是从两个分开的连续的组成的三角形转移而来的，
+因为连续的三个如果可以组成一个三角形，
+我们存在两个这样的区间，
+由于我们对长度进行排序了，
+这一部分有概率是交叉到一起的。
+比如两组分别是 <span class="arithmatex">\(a_i,a_{i+1},a_{i+2}\)</span> 和 <span class="arithmatex">\(a_j,a_{j+1},a_{j+2}\)</span>，
+我们排序之后可能会产生形如 <span class="arithmatex">\(\{a_i,a_i+1,a_j,a_j+1,a_i+2,a_j+2\}\)</span>，
+这种两个区间混到了一起不再连续的情况，
+而实质上如果我们从这六个中匹配了一组三角形，
+并且把这三条边删掉之后，
+剩下的可以构成另一个三角形的边依然是连续的。
+正是因为存在上述情况，我们才需要判断一下连续的六个是否可以组成两个三角形。</p>
 <h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">q</span><span class="p">;</span>
