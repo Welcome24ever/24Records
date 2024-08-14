@@ -69,6 +69,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -1728,6 +1733,19 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    奇思妙想
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -1738,6 +1756,43 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      题解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      大家怎么想
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1760,6 +1815,34 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      题解
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      大家怎么想
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1777,15 +1860,25 @@
   
 
 
-  <h1>奇思妙想</h1>
-
-<p>现在给定一个函数 <span class="arithmatex">\(f(n,m,x)\)</span>，定义 <span class="arithmatex">\(f(n,m,x) = \int_{0}^{1} \frac{x^{m}(a+b x^{2}) \ln ^{n-1}(1 / x)}{1+x^{2}} d x\)</span>，
-现在给定三个区间 <span class="arithmatex">\([L_1,R_1],[L_2,R_2],[L_3,R_3]\)</span>，
-使得 <span class="arithmatex">\(n\in[L_1,R_1],m\in[L_2,R_2],x\in[L_3,R_3]\)</span>。
+<h1 id="_1">不会存在于算法竞赛中的算法竞赛题</h1>
+<p>现在给定一个积分函数 <span class="arithmatex">\(f(n,m,x)\)</span>，定义 <span class="arithmatex">\(f(n,m,x) = \int_{0}^{1} \frac{x^{m}(a+b x^{2}) \ln ^{n-1}(1 / x)}{1+x^{2}} d x\)</span>，
+现在给定三个区间 <span class="arithmatex">\([L_1,R_1],[L_2,R_2]\)</span>，
+使得 <span class="arithmatex">\(n\in[L_1,R_1],m\in[L_2,R_2]\)</span>。
 当 <span class="arithmatex">\(n,m,x\)</span> 符合上述条件时，
 有多少种取值使得 <span class="arithmatex">\(f(n,m,x)\)</span> 的结果形如 <span class="arithmatex">\(a\pi^k + b\)</span> 并且满足 <span class="arithmatex">\(k = n\)</span>？</p>
 <p>数据范围：</p>
-<p><span class="arithmatex">\(2 \leq L_1 \leq R_1 \leq 10^{9},0 \leq L_2 \leq R_2 \leq 10^{9}.-10^{9} \leq L_3 \leq R_3 \leq 10^{9}\)</span></p>
+<p><span class="arithmatex">\(2 \leq L_1 \leq R_1 \leq 10^{9},0 \leq L_2 \leq R_2 \leq 10^{9}\)</span></p>
+<h2 id="_2">题解</h2>
+<p>注意到：</p>
+<p>上述积分只要在 <span class="arithmatex">\(n + m\)</span> 为一个奇数的时候，
+结果一定是形如 <span class="arithmatex">\(a\pi^k+b\)</span> 的形式，其中 <span class="arithmatex">\(k\)</span> 一定等于 <span class="arithmatex">\(n\)</span>。</p>
+<p>Q.E.D</p>
+<h2 id="_3">大家怎么想</h2>
+<p>对于这道题，大家给出的评价是</p>
+<p>ttklwxx(dyq) : 看着就没法做啊。神了。</p>
+<p>kilo_5723 : 几个母亲敢出这种题。建议出一个题，没有输入，输出出题人户口本的页数。</p>
+<p>jlyfish : 敢出对脑电波题是欠骂了。</p>
+<p>Ackerlanna : 真烂吧。</p>
 
 
 
