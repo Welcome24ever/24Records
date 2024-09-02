@@ -20,7 +20,7 @@
     
     
       
-        <title>CF366F Maximum Composition - 24Records</title>
+        <title>ABC366F Maximum Composition - 24Records</title>
       
     
     
@@ -72,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#cf366f-maximum-composition" class="md-skip">
+        <a href="#abc366f-maximum-composition" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CF366F Maximum Composition
+              ABC366F Maximum Composition
             
           </span>
         </div>
@@ -1770,7 +1770,7 @@
         
   
   <span class="md-ellipsis">
-    E
+    ABC366E Manhattan Multifocal Ellipse
   </span>
   
 
@@ -1800,7 +1800,7 @@
           
   
   <span class="md-ellipsis">
-    CF366F Maximum Composition
+    ABC366F Maximum Composition
   </span>
   
 
@@ -1811,7 +1811,7 @@
         
   
   <span class="md-ellipsis">
-    CF366F Maximum Composition
+    ABC366F Maximum Composition
   </span>
   
 
@@ -1861,15 +1861,6 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      额外思考
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -2401,15 +2392,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      额外思考
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
       日志
     </span>
   </a>
@@ -2434,18 +2416,65 @@
   
 
 
-<h1 id="cf366f-maximum-composition">CF366F Maximum Composition</h1>
+<h1 id="abc366f-maximum-composition">ABC366F Maximum Composition</h1>
 <p>原题链接：<a href="https://atcoder.jp/contests/abc366/tasks/abc366_f">F - Maximum Composition</a></p>
-<p>Tag：</p>
+<p>Tag：数学、DP</p>
 <h2 id="_1">题目描述</h2>
+<p>给定 <span class="arithmatex">\(N\)</span> 个线性方程，其中 <span class="arithmatex">\(f_i(x) = A_ix+B_i\)</span>。</p>
+<p>现在从这些线性方程中选出 <span class="arithmatex">\(K\)</span> 个，
+求 <span class="arithmatex">\(f_{p1}(f_{p2}(\cdots f_{pk}(1) \cdots))\)</span> 的最大可能值。</p>
 <p>数据说明：</p>
+<p><span class="arithmatex">\(1 \leq N \leq 2 \times 10^{5}\)</span></p>
+<p><span class="arithmatex">\(1 \leq K \leq \text{min}(N,10)\)</span> </p>
+<p><span class="arithmatex">\(1 \leq A_i,B_i \leq 50 (1\ \leq i \leq N)\)</span></p>
 <h2 id="_2">分析</h2>
+<p>直接看这个问题我们可能不太好入手，
+我们尝试把问题简化一下，
+如果已经知道了最后要选哪 <span class="arithmatex">\(k\)</span> 个，
+我们要怎么做。
+这样似乎还是不够好入手，
+我们直接化简到，对于给定的一个 <span class="arithmatex">\(f_i(x)\)</span> 和 <span class="arithmatex">\(f_j(x)\)</span>，
+要怎么算才能最大化答案？</p>
+<p>既然只有两个函数，也就只有两种做法，
+分别是 <span class="arithmatex">\(f_i(f_j(x))\)</span> 和 <span class="arithmatex">\(f_j(f_i(x))\)</span>。
+尝试把 <span class="arithmatex">\(A,B\)</span> 代入，可以分别得到 <span class="arithmatex">\(A_iA_jx + A_iB_j + B_i\)</span> 和 <span class="arithmatex">\(A_iA_jx + A_jB_i + B_j\)</span>。
+发现不同的位置只有后两项，也就是说大小和 <span class="arithmatex">\(x\)</span> 是无关的。
+我们列一个不等式为：</p>
+<div class="arithmatex">\[\begin{equation}
+A_iB_j + Bi \lt A_jB_i + B_j
+\end{equation}\]</div>
+<p>移项处理可以得到：</p>
+<div class="arithmatex">\[\begin{equation}
+\frac{A_i-1}{Bi} \lt \frac{A_j-1}{B_j}
+\end{equation}\]</div>
+<p>于是我们可以按照这个式子对函数进行排序。</p>
+<p>之后我们定义一个 <span class="arithmatex">\(dp[i][j]\)</span>，
+其意义为前 <span class="arithmatex">\(i\)</span> 个函数里已经选了 <span class="arithmatex">\(j\)</span> 个时的最大答案，
+从前向后转移就可以了，
+最后 <span class="arithmatex">\(dp[n][k]\)</span> 就是我们要求的答案。</p>
 <h2 id="_3">代码实现</h2>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">k</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="n">PII</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">PII</span><span class="w"> </span><span class="n">y</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">dp</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">));</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">    </span><span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">k</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">            </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">max</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">second</span><span class="p">);</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">额外思考</h2>
-<h2 id="_5">日志</h2>
-<p>本页面创建于 2024/6/23 22:22</p>
+<h2 id="_4">日志</h2>
+<p>本页面创建于 2024/09/02 13:43</p>
 
 
 
