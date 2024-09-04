@@ -1355,19 +1355,67 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法二
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="代码实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#577ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法一（577ms）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法二（77ms）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       额外思考
     </span>
@@ -1376,7 +1424,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -2385,19 +2433,67 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法一
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法二
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       代码实现
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="代码实现">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#577ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法一（577ms）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#77ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      解法二（77ms）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       额外思考
     </span>
@@ -2406,7 +2502,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       日志
     </span>
@@ -2447,6 +2543,7 @@
 <p>数据说明：</p>
 <p><span class="arithmatex">\(3 \leq n \leq 500\)</span></p>
 <h2 id="_2">分析</h2>
+<h3 id="_3">解法一</h3>
 <p>首先这个给定的图是一张竞赛图，
 讨论的是竞赛图上的连通性问题。</p>
 <p>看到双向连通很容易想到强连通分量，
@@ -2470,7 +2567,22 @@
 我们只需要询问这一组点中入度较大的能否到达入度小的即可。
 一旦交互返回了 <span class="arithmatex">\(Yes\)</span>，答案就是当前询问的一组点，
 如果一直没有收到 <span class="arithmatex">\(Yes\)</span> 的反馈则无解，输出<code>! 0 0</code>。</p>
-<h2 id="_3">代码实现</h2>
+<p>以上解法复杂度为 <span class="arithmatex">\(O(n^2)\)</span></p>
+<h3 id="_4">解法二</h3>
+<p>在有了上述的结论之后，
+我们考虑从拓扑序较小的地方开始观察，
+发现对于第 <span class="arithmatex">\(1\)</span> 个到第 <span class="arithmatex">\(i\)</span> 个强连通分量，
+这些强连通分量的入度的和为 <span class="arithmatex">\(i * (i - 1) / 2\)</span>，
+因为这一部分是一个首项为 <span class="arithmatex">\(0\)</span> 公差为 <span class="arithmatex">\(1\)</span> 的等差数列。</p>
+<p>所以我们从入度最小的点开始统计总共的入度，记为 <span class="arithmatex">\(sum\)</span>。
+每当我们发现记录的 <span class="arithmatex">\(sum\)</span> 为 <span class="arithmatex">\(i * (i - 1) / 2\)</span> 的时候，
+就可以确定第 <span class="arithmatex">\(1\)</span> 到第 <span class="arithmatex">\(i\)</span> 个点组成了这个竞赛图中拓扑序最小的若干个强连通分量。</p>
+<p>经过上述的操作我们可以在线性的时间内根据题目给出的入度处理出所有的强连通分量。</p>
+<p>综上所述，如果使用桶排序的话时间复杂度可以达到 <span class="arithmatex">\(O(n)\)</span>，
+但是由于 <span class="arithmatex">\(n\)</span> 的范围只有 <span class="arithmatex">\(500\)</span>，性能差异并不明显。</p>
+<p>除此之外，以上做法无需进行交互操作。</p>
+<h2 id="_5">代码实现</h2>
+<h3 id="577ms">解法一（577ms）</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
@@ -2507,10 +2619,41 @@
 <a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="k">return</span><span class="p">;</span>
 <a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="p">}</span>
 </code></pre></div>
-<h2 id="_4">额外思考</h2>
+<h3 id="77ms">解法二（77ms）</h3>
+<p>可以通过把排序换成桶排序来实现真正的 <span class="arithmatex">\(O(n)\)</span>，
+但是测完发现速度倒退，感兴趣的可以自己实现，
+因为我桶排写的不是很美观所以放了使用 <span class="arithmatex">\(sort\)</span> 的代码。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">PII</span><span class="o">&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">        </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">mx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="n">PII</span><span class="w"> </span><span class="n">ans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">        </span><span class="k">if</span><span class="p">(</span><span class="n">sum</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">){</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">first</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">mx</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">p</span><span class="p">){</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">                </span><span class="n">mx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">first</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">vec</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">first</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">                </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">make_pair</span><span class="p">(</span><span class="n">vec</span><span class="p">[</span><span class="n">p</span><span class="p">].</span><span class="n">second</span><span class="p">,</span><span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">second</span><span class="p">);</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">            </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;! &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">.</span><span class="n">first</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="sc">&#39; &#39;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ans</span><span class="p">.</span><span class="n">second</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="p">}</span>
+</code></pre></div></p>
+<h2 id="_6">额外思考</h2>
 <p>竞赛图缩点之后会变成一个类似链状物，缩点后的图上关于度有一些很神奇的性质。</p>
-<h2 id="_5">日志</h2>
+<h2 id="_7">日志</h2>
 <p>本页面创建于 2024/08/17 11:55</p>
+<p>UPD-1：2024/09/04 20:25</p>
+<p>更新了线性解法。</p>
 
 
 
