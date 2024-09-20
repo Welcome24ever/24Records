@@ -2968,8 +2968,8 @@
 只需从 <span class="arithmatex">\(i-1\)</span> 和 <span class="arithmatex">\(i-2\)</span> 开始转移，
 具体转移为：</p>
 <p><span class="arithmatex">\(\begin{cases}
-dp_{i,0} = max(dp_{i-1,1},dp_{i-2,1}) + a_i * 2 \\
-dp_{i,1} = max(dp_{i-1,0},dp_{i-2,0}) + a_i
+dp_{i,0} = \max(dp_{i-1,1},dp_{i-2,1}) + a_i * 2 \\
+dp_{i,1} = \max(dp_{i-1,0},dp_{i-2,0}) + a_i
 \end{cases}\)</span></p>
 <h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
