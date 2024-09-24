@@ -2990,9 +2990,9 @@ f_r(n) = \sum\limits_{u\cdot v = n}\frac{f_{r-1}(u)+f_{r-1}(v)}{2}
 <p>可以看到，在这种情况下题目没有要求 <span class="arithmatex">\(u\)</span> 与 <span class="arithmatex">\(v\)</span> 互质。
 所以我们可以引入一个 <span class="arithmatex">\(x = u\)</span>，就可以把式子化成这种形式：</p>
 <div class="arithmatex">\[\begin{equation}
-f_r(n) = \sum\limits_{x\mid n}\frac{f_{r-1}(x)+f_{r-1}(\frac{n}{d})}{2}
+f_r(n) = \sum\limits_{x\mid n}\frac{f_{r-1}(x)+f_{r-1}(\frac{n}{x})}{2}
 \end{equation}\]</div>
-<p>观察化简之后的式子，我们发现其中的 <span class="arithmatex">\(d\)</span> 和 <span class="arithmatex">\(\frac{n}{d}\)</span> 是呈现对称关系的，
+<p>观察化简之后的式子，我们发现其中的 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(\frac{n}{x}\)</span> 是呈现对称关系的，
 于是可以进一步化简成</p>
 <div class="arithmatex">\[\begin{equation}
 f_r(n) = \sum\limits_{x\mid n} f_{r-1}d(n)
