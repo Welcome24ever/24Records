@@ -3262,7 +3262,7 @@
 
 <h1 id="p11231-csp-s-2024">P11231 [CSP-S 2024] 决斗</h1>
 <p>原题链接：<a href="https://www.luogu.com.cn/problem/P11231">P11231 [CSP-S 2024] 决斗</a></p>
-<p>Tag：</p>
+<p>Tag：模拟、双指针、排序</p>
 <h2 id="_1">题目描述</h2>
 <p>今天是小 Q 的生日，他得到了 <span class="arithmatex">\(n\)</span> 张卡牌作为礼物。这些卡牌属于火爆的“决斗怪兽”，其中，第 <span class="arithmatex">\(i\)</span> 张卡代表一只攻击力为 <span class="arithmatex">\(r_i\)</span>，防御力也为 <span class="arithmatex">\(r_i\)</span> 的怪兽。</p>
 <p>一场游戏分为若干回合。每回合，小 Q 会选择某只怪兽 <span class="arithmatex">\(i\)</span> 以及<strong>另一只</strong>怪兽 <span class="arithmatex">\(j(i \neq j)\)</span>，并让怪兽 <span class="arithmatex">\(i\)</span> 向怪兽 <span class="arithmatex">\(j\)</span> 发起攻击。此时，若怪兽 <span class="arithmatex">\(i\)</span> 的攻击力小于等于怪兽 <span class="arithmatex">\(j\)</span> 的防御力，则无事发生；否则，怪兽 <span class="arithmatex">\(j\)</span> 的防御被打破，怪兽 <span class="arithmatex">\(j\)</span> 退出游戏不再参与到剩下的游戏中。一只怪兽在整场游戏中<strong>至多</strong>只能发起一次攻击。当未退出游戏的怪兽都已发起过攻击时，游戏结束。</p>
