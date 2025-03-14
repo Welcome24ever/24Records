@@ -3337,7 +3337,7 @@ dp[i] = dp[j] + 区间[i,j]中相邻的相等数字
 <p>对于如何快速确定一个区间内相邻相等数字的和，
 我们可以使用前缀和：</p>
 <div class="arithmatex">\[\begin{cases}
-pre[i] = pre[i - 1] + A[i] &amp;  ,  A[i] = A[i - 1]\\
+pre[i] = pre[i - 1] + A[i] , &amp;  A[i] = A[i - 1]\\
 pre[i] = pre[i - 1]
 \end{cases}\]</div>
 <p>于是我们可以优化之前的转移：</p>
@@ -3375,6 +3375,8 @@ dp[i] = max(dp[i],dp[lst[A[i]] + 1] + vec[i] + pre[i] - pre[lst[A[i]] + 1]);
 </code></pre></div>
 <h2 id="_4">日志</h2>
 <p>本页面创建于 2024/03/14 22:53</p>
+<p>特别鸣谢：</p>
+<p><a href="https://codeforces.com/profile/Boboge">Boboge</a>以及<a href="https://codeforces.com/profile/Nelofus">Nelofus/Ackerlanna</a>的细心指导</p>
 
 
 
