@@ -3337,7 +3337,7 @@ dp[i] = dp[j] + 区间[i,j]中相邻的相等数字
 <p>对于如何快速确定一个区间内相邻相等数字的和，
 我们可以使用前缀和：</p>
 <div class="arithmatex">\[\begin{cases}
-pre[i] = pre[i - 1] + A[i] \ \ \ \  ,  A[i] = A[i - 1]\\
+pre[i] = pre[i - 1] + A[i] &amp;  ,  A[i] = A[i - 1]\\
 pre[i] = pre[i - 1]
 \end{cases}\]</div>
 <p>于是我们可以优化之前的转移：</p>
