@@ -3382,7 +3382,7 @@
 我们可以这样考虑，如果你选择了 <span class="arithmatex">\(i\)</span> 测速器的前一个测速器 <span class="arithmatex">\(i-1\)</span>。
 在这个时候我们可以假设这个 <span class="arithmatex">\(i-1\)</span> 在选择的时候覆盖到了后面的一些线段，
 那么如果我们选择 <span class="arithmatex">\(i\)</span> 测速器，原来 <span class="arithmatex">\(i-1\)</span> 能覆盖到的区间，<span class="arithmatex">\(i\)</span> 测速器都可以覆盖到，
-甚至有可能覆盖到更后面的区间，答案不会变劣势，而且同时存在概率产生新的贡献，因此是最优的策略。</p>
+甚至有可能覆盖到更后面的区间，答案不会变劣，而且同时存在概率产生新的贡献，因此是最优的策略。</p>
 <p>综上所述，解法时间复杂度为 <span class="arithmatex">\(O(nlogn)\)</span>。</p>
 <h2 id="_3">代码实现</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">NeverSayNever</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
