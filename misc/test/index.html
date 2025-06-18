@@ -736,6 +736,8 @@
       
         
       
+        
+      
     
     
       
@@ -1759,6 +1761,77 @@
   
   <span class="md-ellipsis">
     CF276B Little Girl and Game
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3_11" id="__nav_2_3_11_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CF135
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_11">
+            <span class="md-nav__icon md-icon"></span>
+            CF135
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../solutions/Codeforces/CF135/B/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CF135B Rectangle and Square
   </span>
   
 
@@ -3260,15 +3333,97 @@
 
   <h1>草稿</h1>
 
-<p><span class="arithmatex">\(\max(a_i+b_j,a_j+b_i)\)</span></p>
-<p>左边大</p>
-<p><span class="arithmatex">\(a_i+b_j \geq a_j+b_i\)</span></p>
-<p><span class="arithmatex">\(\max(a_i+b_j,a_j+b_i) = a_i + b_j\)</span></p>
-<p>右边大</p>
-<p><span class="arithmatex">\(a_i+b_j \lt a_j+b_i\)</span></p>
-<p><span class="arithmatex">\(\max(a_i+b_j,a_j+b_i) = a_j + b_i\)</span></p>
-<p><span class="arithmatex">\(a_i+b_j \geq a_j+b_i ~~~~~~~~~ \rightarrow ~~~~~~~~~ b_j - a_j \geq b_i - a_i\)</span></p>
-<p><span class="arithmatex">\(a_i+b_j \lt a_j+b_i ~~~~~~~~~ \rightarrow ~~~~~~~~~ b_j - a_j \lt b_i - a_i\)</span></p>
+<p>下文我们使用 <span class="arithmatex">\(\text{lowZ}\)</span> 来表示美丽度，
+即二进制表示后末尾连续 <span class="arithmatex">\(0\)</span> 的个数。</p>
+<p>首先这里存在一个不易观察到的结论：</p>
+<p>在题目的要求下，
+<span class="arithmatex">\(f(a,b,c)\)</span> 的答案，
+即 <span class="arithmatex">\(\text{lowZ}(|a^c-b^c|)\)</span>，
+实际上等于 <span class="arithmatex">\(\text{lowZ}(|a-b|)\)</span>。
+关于这部分在末尾会给出初等证明。</p>
+<p>因此题目要求的东西，
+实际上和 <span class="arithmatex">\(c\)</span> 是无关的，
+我们只需要求若干个 <span class="arithmatex">\(\text{lowZ}(|a-b|)\)</span> 就可以了。</p>
+<p>题目中所说的前 <span class="arithmatex">\(n\)</span> 个正奇数，
+对应的就是 <span class="arithmatex">\(1,3,5,\cdots,2n-1\)</span>。
+任意奇数都可以表示成 <span class="arithmatex">\(2x-1\)</span> 的形式，
+我们取两个奇数 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>，
+分别表示为 <span class="arithmatex">\(a = 2i-1\)</span> 和 <span class="arithmatex">\(b=2j-1\)</span>。</p>
+<p>显然 <span class="arithmatex">\(|a-b| = 2|i-j|\)</span>，
+我们尝试表示 <span class="arithmatex">\(\text{lowZ}(|a-b|)\)</span>：</p>
+<div class="arithmatex">\[\begin{equation}
+\text{lowZ}(|a-b|) = \text{lowZ}(2|i-j|) = \text{lowZ}(|i-j|) + 1
+\end{equation}\]</div>
+<p>第二步转化是显然的，
+一个数字乘以二等价于左移一位，
+所以末尾会多一个 <span class="arithmatex">\(0\)</span>。</p>
+<p>那么我们记最后的答案为 <span class="arithmatex">\(ans\)</span>，则有：</p>
+<div class="arithmatex">\[\begin{equation}
+ans = \sum_{a\neq b} \text{lowZ}(|a-b|) = \sum_{a\neq b} (\text{lowZ}(|i-j|) + 1)
+\end{equation}\]</div>
+<p>我们可以发现 <span class="arithmatex">\(a\neq b\)</span> 这个东西实际上是具有对称性的，
+因此上面这个式子可以进一步化简成：</p>
+<div class="arithmatex">\[\begin{equation}
+n(n-1) + 2 \sum_{i&gt;j} \text{lowZ} (i-j)
+\end{equation}\]</div>
+<p><span class="arithmatex">\(n(n-1)\)</span> 是好算的，后面这一部分看起来并不好算，
+我们只要想出来怎么计算后面这一式子就可以了。</p>
+<p>我们思考一下，
+对于若干个满足条件的 <span class="arithmatex">\((i,j)\)</span> 实际上我们在求贡献的时候，
+可以把其看做 <span class="arithmatex">\(t * 2^k\)</span>，
+其中 <span class="arithmatex">\(t\)</span> 是一个奇数。
+我们不妨尝试计算对于每一个 <span class="arithmatex">\(k\)</span> 有多少满足条件的 <span class="arithmatex">\(t\)</span>。</p>
+<p>这里要记住，我们的 <span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 表达的实际上是我们对于前 <span class="arithmatex">\(n\)</span> 个正整数编号之后，
+<span class="arithmatex">\(i\)</span> 和 <span class="arithmatex">\(j\)</span> 就表示了他们是这个正奇数数列中的第几项。</p>
+<p>接下来这部分很重要：</p>
+<p>我们枚举所有的 <span class="arithmatex">\(2^k\)</span>，定义 <span class="arithmatex">\(m\)</span> 为其最大序号差值，即 <span class="arithmatex">\(n-1\)</span>。</p>
+<p>这样一来我们可以使用 <span class="arithmatex">\(m\)</span> 除以 <span class="arithmatex">\(2^k\)</span>，
+来表示 <span class="arithmatex">\(t * 2^k\)</span> 中，我们最大可以取到的 <span class="arithmatex">\(t\)</span>。</p>
+<p>因为我们上面说了 <span class="arithmatex">\(t\)</span> 一定是一个奇数，
+我们定义 <span class="arithmatex">\(q = m / 2^k\)</span>
+所以这里我们可以使用 <span class="arithmatex">\(q - (q / 2)\)</span> 来计算出 <span class="arithmatex">\(t\)</span> 能取到多少个奇数，
+我们记其为 <span class="arithmatex">\(cnt_k\)</span>，
+这个计算是平凡的，这里就不证明了。</p>
+<p>之后我们记 <span class="arithmatex">\(s = (q + 1) / 2\)</span>，这个的平方就是前 <span class="arithmatex">\(s\)</span> 个奇数的和，
+这个的证明也是平凡的，可以使用等差数列的求和公式。</p>
+<p>于是我们可以用 <span class="arithmatex">\(2^k\)</span> 乘以 <span class="arithmatex">\(s^2\)</span> 来计算出所有 <span class="arithmatex">\(t * 2^k\)</span> 的和。</p>
+<p>对于每一个 <span class="arithmatex">\(t\)</span>，它对应的 <span class="arithmatex">\(d = t * 2^k\)</span> 在 <span class="arithmatex">\(1\leq t * 2^k \leq m\)</span> 这个区间里出现的次数有 <span class="arithmatex">\(m+1-d\)</span> 次，
+其证明就是我们通过固定 <span class="arithmatex">\(d\)</span>，则 <span class="arithmatex">\(i\)</span> 一定在 <span class="arithmatex">\([1,m-d+1]\)</span> 的区间里。</p>
+<p>于是我们可以合理地计算出贡献了：</p>
+<div class="arithmatex">\[\begin{equation}
+贡献 = k * \sum_t (m+1-d) = k * \sum_t (m+1-t*2^k)
+\end{equation}\]</div>
+<p>我们对最右边的式子进行拆分求和，就变成：</p>
+<div class="arithmatex">\[\begin{equation}
+k * ((m+1)\times cnt_k - 2^k \times \sum_t t)
+\end{equation}\]</div>
+<p>推到这个式子，已经就结束了，我们可以在 <span class="arithmatex">\(O(\log n)\)</span> 的复杂度内求解单组解。</p>
+<p>最后计算答案的时候，总三元组个数有 <span class="arithmatex">\(n(n-1)(n-2)\)</span> 个，
+所以我们有：</p>
+<div class="arithmatex">\[\begin{equation}
+\frac{n(n-1)+2\times sum}{n(n-1)(n-2)} = 1 + \frac{2\times sum}{n(n-1)}
+\end{equation}\]</div>
+<p>最后给出文章一开始提到的结论的初等证明：</p>
+<p>首先 <span class="arithmatex">\(a\)</span> 与 <span class="arithmatex">\(b\)</span> 是奇数，
+因此 <span class="arithmatex">\(a-b\)</span> 一定是一个偶数，
+我们将其表示为 <span class="arithmatex">\(t * 2^k\)</span>。</p>
+<p>我们对 <span class="arithmatex">\(a^c-b^c\)</span> 做一个分解：</p>
+<div class="arithmatex">\[\begin{equation}
+a^c - b^c = (a-b)\times (a^{c-1}+a^{c-2}b+\cdots +b^{c-1})。
+\end{equation}\]</div>
+<p>我们记其第二个因子为 <span class="arithmatex">\(C\)</span>，因为 <span class="arithmatex">\(a\)</span> 与 <span class="arithmatex">\(b\)</span> 均为计数，
+奇数的次幂一定是奇数，因此 <span class="arithmatex">\(C\)</span> 中的每一项都是奇数，
+共有奇数项，因此 <span class="arithmatex">\(C\)</span> 一定是一个奇数。</p>
+<p>于是我们就可以进行如下的拆解：</p>
+<div class="arithmatex">\[\begin{equation}
+|a^c - b^c| = |a-b| * C = t * 2^k * C
+\end{equation}\]</div>
+<p>因为 <span class="arithmatex">\(t\)</span> 与 <span class="arithmatex">\(C\)</span> 为奇数是肯定的，
+因此 <span class="arithmatex">\(\text{lowZ}\)</span> 与且仅与 <span class="arithmatex">\(2^k\)</span> 相关，
+也就是与 <span class="arithmatex">\(C\)</span> 无关，只和 <span class="arithmatex">\(|a-b|\)</span> 相关。</p>
+<p>文章开头的结论得证。</p>
+<p>虽然这个题的 <span class="arithmatex">\(t\)</span> 与 <span class="arithmatex">\(n\)</span> 等阶，我这种做法和 <span class="arithmatex">\(O(n\log n)\)</span> 预处理之后 <span class="arithmatex">\(O(1)\)</span> 求解单组的时间复杂度一样，
+但是单组 <span class="arithmatex">\(O(\log n)\)</span> 可以求解更大的 <span class="arithmatex">\(n\)</span>。</p>
 
 
 
