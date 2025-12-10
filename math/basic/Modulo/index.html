@@ -12,11 +12,11 @@
         <link rel="prev" href="../../../graph/GraphLayering/">
       
       
-        <link rel="next" href="../../../solutions/home/">
+        <link rel="next" href="../../number-theory/gcd%26lcm/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.27">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.27">
     
     
       
@@ -692,6 +692,8 @@
       
         
       
+        
+      
     
     
       
@@ -796,6 +798,77 @@
 
       </a>
       
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            数论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../number-theory/gcd%26lcm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最大公约数和最小公倍数
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -4897,7 +4970,7 @@ a - b = km, \ c - d = lm \rightarrow (a+c) - (b+d) = (k + l)m
 </code></pre></div>
 <p>也就是说，当我们在 <span class="arithmatex">\(\text{C++}\)</span> 中，我们进行取模的运算时，
 余数会保持和左边的数字同号，左边的数字是正的，答案就是正的；是负的答案就是负的。</p>
-<p>这有就是为什么我们经常会在部分人的代码中看到：
+<p>这就是为什么我们经常会在部分人的代码中看到：
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="nf">mod_norm</span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">MOD</span><span class="p">){</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">    </span><span class="n">x</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">MOD</span><span class="p">;</span>
