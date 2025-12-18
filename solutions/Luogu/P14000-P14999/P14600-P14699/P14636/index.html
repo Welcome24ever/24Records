@@ -5259,10 +5259,18 @@ Z &lt; X - Y \Leftrightarrow b_p &lt; b_j - b_i
 <p>组 <span class="arithmatex">\(B\)</span> 的数量是 <span class="arithmatex">\(|B| = j - i - 1\)</span>。</p>
 <p>我们最后一个需要解决的问题在于，花掉 <span class="arithmatex">\(m-1\)</span> 元这个事情。</p>
 <p>我们设 <span class="arithmatex">\(x\)</span> 为组 <span class="arithmatex">\(A\)</span> 中标 <span class="arithmatex">\(2\)</span> 元的个数，<span class="arithmatex">\(y\)</span> 为组 <span class="arithmatex">\(B\)</span> 中标了 <span class="arithmatex">\(1\)</span> 的数量。
-那么在我们看到 <span class="arithmatex">\(X\)</span> 之前花掉的钱，就可以这样去算：
-- 组 <span class="arithmatex">\(A\)</span>：不管怎么标都在 <span class="arithmatex">\(X\)</span> 前面，而且至少花费 <span class="arithmatex">\(1\)</span>，那就相当于先花了 <span class="arithmatex">\(|A|\)</span>，有 <span class="arithmatex">\(x\)</span> 个花了 <span class="arithmatex">\(2\)</span> 元，就多花了 <span class="arithmatex">\(x\)</span> 元。
-- 组 <span class="arithmatex">\(B\)</span>：只有标 <span class="arithmatex">\(1\)</span> 的会跑到 <span class="arithmatex">\(X\)</span> 的前面，并且花钱，所以贡献了 <span class="arithmatex">\(y\)</span>。
-- 再加上 <span class="arithmatex">\(Y\)</span> 是必定要被买的那个 <span class="arithmatex">\(1\)</span> 元糖果。</p>
+那么在我们看到 <span class="arithmatex">\(X\)</span> 之前花掉的钱，就可以这样去算：</p>
+<ul>
+<li>
+<p>组 <span class="arithmatex">\(A\)</span>：不管怎么标都在 <span class="arithmatex">\(X\)</span> 前面，而且至少花费 <span class="arithmatex">\(1\)</span>，那就相当于先花了 <span class="arithmatex">\(|A|\)</span>，有 <span class="arithmatex">\(x\)</span> 个花了 <span class="arithmatex">\(2\)</span> 元，就多花了 <span class="arithmatex">\(x\)</span> 元。</p>
+</li>
+<li>
+<p>组 <span class="arithmatex">\(B\)</span>：只有标 <span class="arithmatex">\(1\)</span> 的会跑到 <span class="arithmatex">\(X\)</span> 的前面，并且花钱，所以贡献了 <span class="arithmatex">\(y\)</span>。</p>
+</li>
+<li>
+<p>再加上 <span class="arithmatex">\(Y\)</span> 是必定要被买的那个 <span class="arithmatex">\(1\)</span> 元糖果。</p>
+</li>
+</ul>
 <p>所以我们可以把「看到 <span class="arithmatex">\(X\)</span> 时剩下 <span class="arithmatex">\(1\)</span> 元」写成方程：</p>
 <div class="arithmatex">\[
 |A| + x + y + 1 = m - 1
@@ -5270,13 +5278,17 @@ Z &lt; X - Y \Leftrightarrow b_p &lt; b_j - b_i
 <p>移项则有 <span class="arithmatex">\(x + y = m - 2 - |A| = m - 2 -(n - j)\)</span></p>
 <p>我们终于可以开始统计方案了：</p>
 <ul>
-<li>组 <span class="arithmatex">\(A\)</span>：从 <span class="arithmatex">\(|A|\)</span> 个里选择 <span class="arithmatex">\(x\)</span> 个标价为 <span class="arithmatex">\(2\)</span>，方案数是 <span class="arithmatex">\(\displaystyle {|A|}\choose x\)</span></li>
-<li>组 <span class="arithmatex">\(B\)</span>：从 <span class="arithmatex">\(|B|\)</span> 个里选择 <span class="arithmatex">\(y\)</span> 个标价为 <span class="arithmatex">\(1\)</span>，方案数是 <span class="arithmatex">\(\displaystyle {|B|}\choose y\)</span></li>
+<li>
+<p>组 <span class="arithmatex">\(A\)</span>：从 <span class="arithmatex">\(|A|\)</span> 个里选择 <span class="arithmatex">\(x\)</span> 个标价为 <span class="arithmatex">\(2\)</span>，方案数是 <span class="arithmatex">\(\displaystyle {|A|}\choose x\)</span></p>
+</li>
+<li>
+<p>组 <span class="arithmatex">\(B\)</span>：从 <span class="arithmatex">\(|B|\)</span> 个里选择 <span class="arithmatex">\(y\)</span> 个标价为 <span class="arithmatex">\(1\)</span>，方案数是 <span class="arithmatex">\(\displaystyle {|B|}\choose y\)</span></p>
+</li>
 </ul>
 <p>而我们之前得到了 <span class="arithmatex">\(x + y = m - 2 - (n - j)\)</span></p>
 <p>所以总共的方案数就是：</p>
 <div class="arithmatex">\[
-\sum_x {{|A|}\choose x} \times {{|B|}\choose sum - x}
+\sum_x {{|A|}\choose x} \times {{|B|}\choose \text{sum} - x}
 \]</div>
 <p>而这正是范德蒙德卷积的形式：</p>
 <div class="arithmatex">\[
@@ -5284,7 +5296,7 @@ Z &lt; X - Y \Leftrightarrow b_p &lt; b_j - b_i
 \]</div>
 <p>于是我们非常自然地把之前的式子变成：</p>
 <div class="arithmatex">\[
-\sum_x {{|A|}\choose x} \times {{|B|}\choose sum - x} = {{|A| + |B|} \choose sum}
+\sum_x {{|A|}\choose x} \times {{|B|}\choose \text{sum} - x} = {{|A| + |B|} \choose \text{sum}}
 \]</div>
 <p>而且：</p>
 <div class="arithmatex">\[
@@ -5292,7 +5304,7 @@ Z &lt; X - Y \Leftrightarrow b_p &lt; b_j - b_i
 \]</div>
 <p>因此：</p>
 <div class="arithmatex">\[
-{{|A| + |B|} \choose sum} = {{n-i-1}\choose {m-2-(n-j)}}
+{{|A| + |B|} \choose \text{sum}} = {{n-i-1}\choose {m-2-(n-j)}}
 \]</div>
 <p>我们只要求出这个组合数就可以了。</p>
 <p>在实现方面，我们之前提到的 <span class="arithmatex">\(2^k\)</span> 可以直接线性处理，
@@ -5336,6 +5348,9 @@ Z &lt; X - Y \Leftrightarrow b_p &lt; b_j - b_i
 </code></pre></div></p>
 <h2 id="_4">日志</h2>
 <p>本页面创建于 2025/12/18 16:45</p>
+<p>UPD-1：2025/12/18 16:57</p>
+<p>在<a href="https://codeforces.com/profile/Sugar_fan">Heltion</a>、<a href="https://codeforces.com/profile/foreverlasting">foreverlasting</a>、
+<a href="https://codeforces.com/profile/yhx-12243">yhx-12243</a>的指点下进行了格式修改，避免歧义。</p>
 
 
 
