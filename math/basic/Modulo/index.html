@@ -20,7 +20,7 @@
     
     
       
-        <title>模运算 - 24Records</title>
+        <title>Modulo - 24Records</title>
       
     
     
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              模运算
+              Modulo
             
           </span>
         </div>
@@ -785,18 +785,89 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Modulo
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    模运算
+    Modulo
   </span>
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      模运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模与同余
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      模意义下的运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      负数取模
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      日志
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -819,6 +890,8 @@
   
     
     
+      
+        
       
         
       
@@ -888,6 +961,27 @@
   
   <span class="md-ellipsis">
     最大公约数和最小公倍数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../number-theory/linear-congruence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性同余方程
   </span>
   
 
@@ -5030,8 +5124,59 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      模运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      模与同余
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      模意义下的运算
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      负数取模
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      日志
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -5049,7 +5194,7 @@
   
 
 
-<h1 id="_1">模运算</h1>
+<h2 id="_1">模运算</h2>
 <p>当我们在算法竞赛中看一些 <span class="arithmatex">\(\text{counting}\)</span> 相关的题目时，
 我们经常能看到：</p>
 <ul>
@@ -5059,7 +5204,7 @@
 <p>在我们刚接触算法竞赛的时候，我们总是会想「这个好办，直接对着答案 <span class="arithmatex">\(\% mod\)</span> 不就行了吗。」</p>
 <p>虽然从结果上来看，似乎确实是这样，但是其涉及到的模运算是算法竞赛非常重要的一部分，
 不仅是在我们做数数题的时候取个模，还有很多基于模运算拓展出来的东西。</p>
-<h1 id="_2">模与同余</h1>
+<h2 id="_2">模与同余</h2>
 <p>给定一个 <span class="arithmatex">\(m\)</span>，我们说 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 在模 <span class="arithmatex">\(m\)</span> 的意义下「同余」，记作：</p>
 <div class="arithmatex">\[
 a \equiv b \pmod m
@@ -5087,7 +5232,7 @@ a \equiv b \pmod m
 <p>所以我们可以把整数按这个关系分成若干类：
 每一类对应一个余数 <span class="arithmatex">\(0,1,\dots,m-1\)</span>。</p>
 <p>这 <span class="arithmatex">\(m\)</span> 个类组成的集合记作 <span class="arithmatex">\(\mathbb{Z}/m\mathbb{Z}\)</span>，你可以理解为“模 <span class="arithmatex">\(m\)</span> 的整数集合”。</p>
-<h1 id="_3">模意义下的运算</h1>
+<h2 id="_3">模意义下的运算</h2>
 <p>假设存在：</p>
 <div class="arithmatex">\[
 a \equiv b \pmod m , \ c \equiv d \pmod m
