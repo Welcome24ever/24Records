@@ -781,7 +781,7 @@
         
   
   <span class="md-ellipsis">
-    Modulo
+    模运算
   </span>
   
 
@@ -5447,7 +5447,7 @@ ax \equiv b \pmod m \ 有解 \Leftrightarrow g \mid b
 <h2 id="_5">方程的转化与求解</h2>
 <p>如果 <span class="arithmatex">\(g \mid b\)</span>，设：</p>
 <div class="arithmatex">\[
-a = ga^{\prime}, \ m = gm^{\prime}, \ b = mb^{\prime}
+a = ga^{\prime}, \ m = gm^{\prime}, \ b = gb^{\prime}
 \]</div>
 <p>那么原式就是：</p>
 <div class="arithmatex">\[
@@ -5461,7 +5461,7 @@ a^{\prime}x \equiv b^{\prime} \pmod {m^{\prime}}
 <div class="arithmatex">\[
 \gcd(a^{\prime},m^{\prime}) = 1
 \]</div>
-<p>于是我们把一般情形规约到了「系数与素数互素」的情形。</p>
+<p>于是我们把一般情形规约到了「系数与模数互素」的情形。</p>
 <p>那么当 <span class="arithmatex">\(\gcd(a^{\prime},m^{\prime}) = 1\)</span> 时，存在唯一的逆元 <span class="arithmatex">\(a^{\prime -1} \pmod {m^{\prime}}\)</span>，使得：</p>
 <div class="arithmatex">\[
 a^{\prime}a^{\prime -1} \equiv 1 \pmod {m^{\prime}}
@@ -5470,7 +5470,7 @@ a^{\prime}a^{\prime -1} \equiv 1 \pmod {m^{\prime}}
 <div class="arithmatex">\[
 a^{\prime}x = b^{\prime} \pmod {m^{\prime}} \Rightarrow x \equiv b^{\prime} \dot a^{\prime -1} \pmod {m^{\prime}}
 \]</div>
-<p>于是我们就可以求解一个模 <span class="arithmatex">\(m\)</span> 意义下的唯一解类。</p>
+<p>于是我们就可以求解一个模 <span class="arithmatex">\(m^{\prime}\)</span> 意义下的唯一解类。</p>
 <p>回到原方程 <span class="arithmatex">\(ax \equiv b \pmod m\)</span>，假设 <span class="arithmatex">\(g = \gcd(a,m) \mid b\)</span>。</p>
 <p>我们已经得到规约方程：</p>
 <div class="arithmatex">\[
@@ -5518,7 +5518,7 @@ f([x]+[y]) = f([x+y]) = [a(x+y)] = [ax] + [ay] = f([x]) + f([y])
 <p>所以这就是一个群同态，更直观地说就是这个不破坏加法结构。</p>
 <p>而我们要解的方程：</p>
 <div class="arithmatex">\[
-ax = b \pmod m
+ax \equiv b \pmod m
 \]</div>
 <p>在这个语言下就可以被表述为：</p>
 <div class="arithmatex">\[
@@ -5542,7 +5542,7 @@ f([x]) = [b]
 <p>它描述了「有哪些点会被乘 <span class="arithmatex">\(a\)</span> 这个操作压到 <span class="arithmatex">\(0\)</span>」。</p>
 <p>核的大小（里面有多少个不同剩余类）会决定：一旦方程可解，会有多少个解。</p>
 <p>为什么会这样？因为在同态里有一个非常经典的现象：</p>
-<p>如果 <span class="arithmatex">\(x_0\)</span> 是一个解（即 <span class="arithmatex">\(f_(x_0)\)</span> = b），那么所有的解构成一个陪集：</p>
+<p>如果 <span class="arithmatex">\(x_0\)</span> 是一个解（即 <span class="arithmatex">\(f(x_0)\)</span> = b），那么所有的解构成一个陪集：</p>
 <div class="arithmatex">\[
 x_0 + \text{ker}(f)
 \]</div>
@@ -5575,7 +5575,7 @@ x \equiv 0,m^{\prime},2m^{\prime},\dots,(g-1)m^{\prime} \pmod m
 <h3 id="_12">于是像的大小也随之确定</h3>
 <p>有限群同态满足一个「计数恒等式」（可以理解成「每个能被命中的点都有同样多的原像」）：</p>
 <div class="arithmatex">\[
-|\mathbb{Z}_m| = |\text{ker}(f)| \dot |\text{Im}(f)|
+|\mathbb{Z}_m| = |\text{ker}(f)| \times |\text{Im}(f)|
 \]</div>
 <p>这里 <span class="arithmatex">\(|\mathbb{Z}_m| , |\text{ker}(f)| = g\)</span>，所以：</p>
 <div class="arithmatex">\[
@@ -5621,6 +5621,8 @@ x \equiv x_0 + t \times \frac{m}{g} \pmod m, \ t = 0,1,2,\dots,g-1
 <h2 id="_15">日志</h2>
 <p>本页面创建于 2025/12/20 17:40</p>
 <p>为了写完我晚下班了十分钟。</p>
+<p>UPD-1：2025/12/23 09:37</p>
+<p>修正若干 <span class="arithmatex">\(\text{typo}\)</span> 和格式错误。</p>
 
 
 
