@@ -5524,7 +5524,7 @@
 而基环内向树，其性质是从任意一个点出发，都可以走到环上。</p>
 <p>因此其实两个条件是互为充要条件的。那么我们其实只需要维护每一个点的出度就可以了。</p>
 <p>于是操作 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(3\)</span>，我们都可以在常数级复杂度的时间内维护出来，
-瘟疫的问题是对于操作 <span class="arithmatex">\(2\)</span> 和 <span class="arithmatex">\(4\)</span>，我们每一次修改，都需要线性的复杂度。
+问题是对于操作 <span class="arithmatex">\(2\)</span> 和 <span class="arithmatex">\(4\)</span>，我们每一次修改，都需要线性的复杂度。
 这样一来我们的做法复杂度为 <span class="arithmatex">\(O(nq)\)</span>，但是有两个 <span class="arithmatex">\(\text{subtask}\)</span> 保证了没有操作 <span class="arithmatex">\(2\)</span> 和操作 <span class="arithmatex">\(4\)</span>，
 那么这两个测试点里，我们的复杂度就是常数级的。</p>
 <p>理论上来说这个做法可以拿到 <span class="arithmatex">\(50\)</span> 分，但是由于评测机效率原因，赛事数据稍微卡一下可以拿 <span class="arithmatex">\(80\)</span> 分。</p>
