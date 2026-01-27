@@ -805,6 +805,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      进一步探讨
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓展
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      日志
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -829,6 +865,8 @@
   
     
     
+      
+        
       
         
       
@@ -1059,6 +1097,77 @@
   
   <span class="md-ellipsis">
     中国剩余定理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    线性代数
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            线性代数
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../math/Linear-Algebra/matrix/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    矩阵
   </span>
   
 
@@ -5342,6 +5451,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      进一步探讨
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      注意事项
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      拓展
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      日志
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -5476,7 +5621,7 @@
 <a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a><span class="p">}</span>
 </code></pre></div>
 </details>
-<h1 id="_3">进一步探讨</h1>
+<h2 id="_3">进一步探讨</h2>
 <p>接下来我们来更加深入探索一下分层图的本质。</p>
 <p>我们可以这样理解分层图的本质：
 分层图的本质就是在原图的点上，附加上一个额外的状态。
@@ -5498,7 +5643,7 @@
 也就是说，我们只需要记录「已用次数 <span class="arithmatex">\(x\)</span>」，就足够我们去刻画后续的行为。
 于是我们就可以非常自然地开 <span class="arithmatex">\(k+1\)</span> 层图，
 第 <span class="arithmatex">\(i\)</span> 层表示已经用了 <span class="arithmatex">\(i\)</span> 次机会。</p>
-<h1 id="_4">注意事项</h1>
+<h2 id="_4">注意事项</h2>
 <p>在使用分层图之前我们需要注意一些事情。</p>
 <p>首先我们一定要关注状态空间的大小，拿我们前文的题目去举例子的话，
 假设这个题的 <span class="arithmatex">\(k\)</span> 达到了 <span class="arithmatex">\(10^5\)</span>，那我们实际上是没办法非常愉快地维护 <span class="arithmatex">\(10^5\)</span> 个和原图规模一样的图的。
@@ -5507,7 +5652,7 @@
 如果问题的转移不依赖于「操作剩余次数」，而是依赖于我们之前在哪里使用过或者走过哪些点。
 那这种东西除非数据规模很小，否则是无法将其压缩成一个足够小的状态，
 来让我们进行分层图的操作的。</p>
-<h1 id="_5">拓展</h1>
+<h2 id="_5">拓展</h2>
 <p>其实某些题目的思想是，要我们先建立分层图，
 之后把状态写成 (层，点) 的 <span class="arithmatex">\(\text{DP}\)</span>：<span class="arithmatex">\(dp[layer][cur]\)</span>。</p>
 <p>如果我们建出来的图是一个 <span class="arithmatex">\(\text{DAG}\)</span>，
@@ -5515,7 +5660,7 @@
 <p>相对的，如果建出来的图不是一个 <span class="arithmatex">\(\text{DAG}\)</span>，
 那你这个时候再去 <span class="arithmatex">\(\text{DP}\)</span> 就稍显诡异了，
 但是在这个图上跑最短路依然是一个非常好的选择。</p>
-<h1 id="_6">日志</h1>
+<h2 id="_6">日志</h2>
 <p>本页面创建于 2025/12/01 17:19</p>
 
 
@@ -5546,7 +5691,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 - 2025 Welcome24ever
+      Copyright &copy; 2024 - 2026 Welcome24ever
     </div>
   
   
